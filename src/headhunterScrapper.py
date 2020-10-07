@@ -18,29 +18,6 @@ class ScrapperConfig:
     command: str
     port: int
 
-<<<<<<< HEAD:src/remote.py
-def connect_to_opened_chrome(path_to_chrome_driver, port):
-    """
-    Function for connecting to Chrome.
-
-    Parameters
-    ----------
-    path_to_chrome_driver : str
-        Path to Chromedriver in system.
-    port : int
-        Number of port.
-    Returns
-    -------
-    webdriver.Chrome(chrome_driver, options=chrome_options)
-        Connecting to remote opened Chrome browser.
-    """
-
-    chrome_options = Options()
-    chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:" + str(port))
-    chrome_driver = path_to_chrome_driver
-    return webdriver.Chrome(chrome_driver, options=chrome_options)
-
-=======
 # usage: path_to_driver path_to_output command (open|connect port)
 def parseCliArguments():
     argv = len(sys.argv)
@@ -63,41 +40,23 @@ main_wait = WebDriverWait(driver, 5, poll_frequency=1, ignored_exceptions=[NoSuc
 driver.get("https://hh.ru/vacancies/data-scientist")
 wait_1 = WebDriverWait(driver, 5, poll_frequency=1, ignored_exceptions=[NoSuchElementException]). \
     until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.vacancy-serp-item")))
->>>>>>> 6032c0c... init:src/headhunterScrapper.py
 
-def page_scrapper():
-    """
-    Function for scrapping pages.
+num_pages = len(driver.find_elements_by_css_selector("span a.bloko-button"))
+vacancies_df = pd.DataFrame()
 
-    Parameters
-    ----------
-        Takes no arguments.
-
-    Returns
-    -------
-        Gives no return.
-
-    For more information see source code.
-    """
-
-    global vacancies_df
-    # Waiting for the presence of vacancies
-    main_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.vacancy-serp-item")))
-    # Take required elements
+for i in range(num_pages):
+    print("Performing scrapping on page {}".format(str(i+1)))
     vacancies = driver.find_elements_by_css_selector("div.vacancy-serp-item")
-    # Iterating over list of vacancies
     for link in vacancies:
-        vacancy_content = []
         try:
-            # print('Checkpoint_1') # Required for debugging
-            # Waiting for the presence of vacancies
-            main_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "a.HH-LinkModifier")))
+            element = main_wait.until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "a.HH-LinkModifier")))
             link.find_element_by_css_selector("a.HH-LinkModifier").click()
             driver.switch_to.window(driver.window_handles[1])
+            element = main_wait.until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-qa=\"vacancy-description\"]")))
+            vacancy_content = []
 
-            # Waiting for required information
-            main_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-qa=\"vacancy-description\"]")))
-            # Gather required information
             vacancy_content.append(driver.find_element_by_css_selector("h1.bloko-header-1").text)
             vacancy_content.append(driver.find_element_by_css_selector("a[data-qa=\"vacancy-company-name\"]").text)
             vacancy_content.append(driver.find_element_by_css_selector("p[data-qa=\"vacancy-view-location\"]").text)
@@ -109,7 +68,6 @@ def page_scrapper():
             vacancy_content.append(driver.find_element_by_css_selector("div[data-qa=\"vacancy-description\"]").text)
             vacancy_content.append(driver.find_element_by_css_selector("div.bloko-tag-list").text)
 
-            # Appending collected data from page to DataSet
             vacancies_df = pd.concat([vacancies_df, pd.Series(vacancy_content)], axis=1)
 
             driver.close()
@@ -121,46 +79,47 @@ def page_scrapper():
             driver.close()
             driver.switch_to.window(driver.window_handles[0])
 
-
-# ----------------------------------
-# Connect by port number and driver path
-driver = connect_to_opened_chrome(chromedriver, 9222)
-# Set up waiting
-main_wait = WebDriverWait(driver, 5, poll_frequency=1, ignored_exceptions=[NoSuchElementException])
-# ----------------------------------
-# Get Vacancies from HeadHunter
-driver.get("https://hh.ru/vacancies/data-scientist")
-wait_1 = WebDriverWait(driver, 5, poll_frequency=1, ignored_exceptions=[NoSuchElementException]). \
-    until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.vacancy-serp-item")))
-# ----------------------------------
-# HH by default determines geolocation and changes vacancies to local ones.
-# We do not need this, therefore, we find the switch responsible for this and turn it off. Then rebooting the page.
-main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.bloko-icon_cancel"))).click()
-driver.refresh()
-# ----------------------------------
-# Creating pandas DataFrame for storing collected data
-vacancies_df = pd.DataFrame()
-# Some additional variable for navigation
-num_pages = len(driver.find_elements_by_css_selector("span a.bloko-button"))
-# Iterating over pages with vacancies
-for i in range(num_pages):
-    print("Performing scrapping on page {}.".format(str(i + 1)))
-    page_scrapper()
-    # Go to next page with vacancies
     main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "a.HH-Pager-Controls-Next"))).click()
-    print("Went on page {}.".format(str(i + 2)))
+    print("Went on page {}".format(str(i + 2)))
 
-print("Performing scrapping on page {}.".format(str(num_pages+1)))
-page_scrapper()
+# This is awful. Need to handle with it more elegant
+vacancies = driver.find_elements_by_css_selector("div.vacancy-serp-item")
+for link in vacancies:
+    try:
+        element = main_wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "a.HH-LinkModifier")))
+        link.find_element_by_css_selector("a.HH-LinkModifier").click()
+        driver.switch_to.window(driver.window_handles[1])
+        element = main_wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-qa=\"vacancy-description\"]")))
+        vacancy_content = []
+
+        vacancy_content.append(driver.find_element_by_css_selector("h1.bloko-header-1").text)
+        vacancy_content.append(driver.find_element_by_css_selector("a[data-qa=\"vacancy-company-name\"]").text)
+        vacancy_content.append(driver.find_element_by_css_selector("p[data-qa=\"vacancy-view-location\"]").text)
+        vacancy_content.append(driver.find_element_by_css_selector("span[data-qa=\"vacancy-experience\"]").text)
+        vacancy_content.append(
+            driver.find_element_by_css_selector("p[data-qa=\"vacancy-view-employment-mode\"]").text)
+        vacancy_content.append(driver.find_element_by_css_selector("p.vacancy-salary").text)
+        vacancy_content.append(driver.find_element_by_css_selector("p.vacancy-creation-time").text)
+        vacancy_content.append(driver.find_element_by_css_selector("div[data-qa=\"vacancy-description\"]").text)
+        vacancy_content.append(driver.find_element_by_css_selector("div.bloko-tag-list").text)
+
+        vacancies_df = pd.concat([vacancies_df, pd.Series(vacancy_content)], axis=1)
+
+        driver.close()
+        driver.switch_to.window(driver.window_handles[0])
+
+    except (NoSuchElementException, StaleElementReferenceException):
+        vacancy_content.append(None)
+        vacancies_df = pd.concat([vacancies_df, pd.Series(vacancy_content)], axis=1)
+        driver.close()
+        driver.switch_to.window(driver.window_handles[0])
+
 print("Scrapping is over. Congratulations!")
 # ----------------------------------
-<<<<<<< HEAD:src/remote.py
-# Storing data to CSV file
-vacancies_df.to_csv(path_to_dataset_folder + 'ds_vacancies_data.csv')
-=======
 # To CSV file
 vacancies_df.to_csv(scrapperConfig.path_to_output + '/vacancies_data.csv')
 
->>>>>>> 6032c0c... init:src/headhunterScrapper.py
 # ----------------------------------
 driver.quit()
