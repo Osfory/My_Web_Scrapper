@@ -12,3 +12,9 @@ jupyter
 notebook
 ipykernel
 ipython
+matplotlib
+seaborn
+scipy
+tqdm
+scikit-learn
+statsmodels
