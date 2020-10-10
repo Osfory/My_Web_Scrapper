@@ -34,7 +34,7 @@ def parseCliArguments():
     return ScrapperConfig(args[1], args[2], num_of_pages, num_of_vacancies, command, port)
 
 
-def page_scrapper(presence, page_catcher, required_elements, number_of_vacancies=60):
+def page_scrapper(presence, page_catcher, required_elements, number_of_vacancies):
     """
     Function for scrapping pages. Extends DataFrame with vacancies.
 
@@ -99,8 +99,8 @@ main_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.vacancy-se
 # ----------------------------------
 # HH by default determines geolocation and changes vacancies to local ones.
 # We do not need this, therefore, we find the switch responsible for this and turn it off. Then rebooting the page.
-# main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.bloko-icon_cancel"))).click()
-# driver.refresh()
+main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.bloko-icon_cancel"))).click()
+driver.refresh()
 # ----------------------------------
 # Creating pandas DataFrame for storing collected data
 vacancies_df = pd.DataFrame()
@@ -117,15 +117,15 @@ css_elements = ["h1.bloko-header-1", "a[data-qa=\"vacancy-company-name\"]", "p[d
                 "p.vacancy-creation-time", "div[data-qa=\"vacancy-description\"]", "div.bloko-tag-list"]
 # ----------------------------------
 # Iterating over pages with vacancies
-for i in range(scrapperConfig.num_of_pages):
+for i in range(scrapperConfig.num_of_pages-1):
     print("Performing scrapping on page {}.".format(str(i + 1)))
     page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements, scrapperConfig.num_of_vacancies)
     # Go to next page with vacancies
     main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, css_next_page_button))).click()
     print("Went on page {}.".format(str(i + 2)))
 
-print("Performing scrapping on page {}.".format(str(num_pages+1)))
-page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements)
+print("Performing scrapping on page {}.".format(str(scrapperConfig.num_of_pages)))
+page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements, scrapperConfig.num_of_vacancies)
 print("Scrapping is over. Congratulations!")
 # ----------------------------------
 # To CSV file
