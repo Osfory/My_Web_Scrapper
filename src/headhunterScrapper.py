@@ -15,22 +15,26 @@ import pandas as pd
 class ScrapperConfig:
     path_to_driver: str
     path_to_output: str
+    num_of_pages: int
+    num_of_vacancies: int
     command: str
     port: int
 
 
-# Usage: path_to_driver path_to_output command (open|connect port)
+# Usage: path_to_driver path_to_output num_of_pages num_of_vacancies command (open|connect port)
 def parseCliArguments():
     argv = len(sys.argv)
-    if (argv < 4 or 5 < argv):
-        raise ValueError("Usage: path_to_driver path_to_output command (open|connect port)")
+    if (argv < 6 or 7 < argv):
+        raise ValueError("Usage: path_to_driver path_to_output num_of_pages num_of_vacancies command (open|connect port)")
     args = sys.argv
-    port = int(args[4]) if 5 == argv else -1
-    command = "open" if "connect" != args[3] else "connect"
-    return ScrapperConfig(args[1], args[2], command, port)
+    num_of_pages = int(args[3])
+    num_of_vacancies = int(args[4])
+    port = int(args[6]) if 7 == argv else -1
+    command = "open" if "connect" != args[5] else "connect"
+    return ScrapperConfig(args[1], args[2], num_of_pages, num_of_vacancies, command, port)
 
 
-def page_scrapper(presence, page_catcher, required_elements):
+def page_scrapper(presence, page_catcher, required_elements, number_of_vacancies=60):
     """
     Function for scrapping pages. Extends DataFrame with vacancies.
 
@@ -55,7 +59,7 @@ def page_scrapper(presence, page_catcher, required_elements):
     # Take a list of vacancies
     vacancies = driver.find_elements_by_css_selector(presence)
     # Iterating over list of vacancies
-    for link in vacancies:
+    for link in vacancies[:number_of_vacancies]:
         vacancy_content = []
         try:
             # Waiting for the presence of vacancies
@@ -95,8 +99,8 @@ main_wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.vacancy-se
 # ----------------------------------
 # HH by default determines geolocation and changes vacancies to local ones.
 # We do not need this, therefore, we find the switch responsible for this and turn it off. Then rebooting the page.
-main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.bloko-icon_cancel"))).click()
-driver.refresh()
+# main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span.bloko-icon_cancel"))).click()
+# driver.refresh()
 # ----------------------------------
 # Creating pandas DataFrame for storing collected data
 vacancies_df = pd.DataFrame()
@@ -113,9 +117,9 @@ css_elements = ["h1.bloko-header-1", "a[data-qa=\"vacancy-company-name\"]", "p[d
                 "p.vacancy-creation-time", "div[data-qa=\"vacancy-description\"]", "div.bloko-tag-list"]
 # ----------------------------------
 # Iterating over pages with vacancies
-for i in range(num_pages):
+for i in range(scrapperConfig.num_of_pages):
     print("Performing scrapping on page {}.".format(str(i + 1)))
-    page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements)
+    page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements, scrapperConfig.num_of_vacancies)
     # Go to next page with vacancies
     main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, css_next_page_button))).click()
     print("Went on page {}.".format(str(i + 2)))
@@ -125,6 +129,6 @@ page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements)
 print("Scrapping is over. Congratulations!")
 # ----------------------------------
 # To CSV file
-vacancies_df.to_csv(scrapperConfig.path_to_output + '/ds_vacancies_data.csv')
+vacancies_df.to_csv(scrapperConfig.path_to_output + '/vacancies_data_test.csv')
 # ----------------------------------
 driver.quit()
