@@ -1,109 +1,124 @@
-,0,0,0
-0,Data Scientist,Data Scientist,Senior Machine Learning Data Scientist
-1,ООО Софтвайс,ООО Цифровое проектирование,ИП Гурфинг Михаил Григорьевич
-2,"Санкт-Петербург, Чкаловский проспект, 50","Санкт-Петербург, улица Мира, 3",Санкт-Петербург
-3,1–3 года,1–3 года,3–6 лет
-4,"Полная занятость, полный день","Полная занятость, полный день","Полная занятость, удаленная работа"
-5,от 150 000 до 200 000 руб. на руки,от 110 000 руб. на руки,з/п не указана
-6,Вакансия опубликована 8 октября 2020 в Санкт-Петербурге,Вакансия опубликована 7 октября 2020 в Санкт-Петербурге,Вакансия опубликована 16 сентября 2020 в Санкт-Петербурге
-7,"Мы - «Софтвайс», и мы занимается разработкой ПО в области рекламы и мобильных игр.
-Мы никогда не стоим на месте и всячески развиваем внутренние направления в нашей компании - например, аналитику. Именно по этому нам хотелось бы найти опытного Data Scientist.
-С тебя:
-Опыт работы с Big Data от 2-лет;
-Опыт работы с SQL;
-Опыт работы с BI-системами (Tableau, Metabase, Power BI);
-Знание Python / R;
-Знание ML стека;
-Знание баз данных: PostgreS, ClickHouse;
-Умение разбираться в бизнес-процессах
-Будет плюсом:
-Умение объяснять результаты людям, которые не разбираются в математике;
-Опыт работы с интернет-рекламой;
-Стремление решить проблему, а не ""выгрузить, что попросят""
-А какие задачи?
-Поиск оптимального объема и скорости тестирования новых рекламных кампаний;
-Предсказание вероятности успешности рекламной кампании на различных источниках;
-Прогнозы возможного объема и стоимости необходимого рекламодателю трафика в системе;
-Улучшение предиктивной модели приоритезации рекламных кампаний;
-Построение моделей для фильтрации некачественного/мошеннического трафика;
-А/Б тестирование различных технических и организационных изменений
-Что с нас:
-Стабильная заработная плата, перспектива роста;
-Условия для развития: оплата конференций и тренингов, учебных материалов и курсов;
-Постоянная работа в комфортном офисе в новом бизнес-центре в 7 минутах ходьбы от м. Петроградская и м.Чкаловская;
-Гибкий график работы: всегда можно договориться, когда приходить и когда уходить;
-Молодой, веселый и дружелюбный коллектив (это правда);
-ДМС, корпоративный английский, корпоративный спорт;
-Кофе, сендвичи, йогурты, настольный футбол, XBox, спортзал;
-Оформление по ТК РФ.","Компания «Цифровое проектирование» ведет исследования и разрабатывает инструменты решения задач оптимизации в области технологического инжиниринга на основе применения технологий машинного обучения, искусственного интеллекта и анализа больших данных.
-Задач становится больше, задачи становятся сложнее, и мы ищем Инженера-математика/Data Scientist, который любит python, математику, computer science и хочет развиваться в области data science. Мы ожидаем, что для соискателя не составит труда поддержать разговор по темам базового курса математики в техническом университете с уклоном в численные методы (поиск минимума функции многих переменных, линейное программирование, кластеризация, теорвер, функциональный анализ), а также знание математических пакетов для решения этих задач на практике (Matlab, scipy и подобные).
-Примеры задач, которые придется решать:
-1. Разработка алгоритмов гладкой оптимизации целевых функций стоимости.
-2. Задачи кластеризации объектов с пространственными ограничениями.
-3. Применение симплекс-метода и его вариаций для решения задач линейного программирования.
-Обязанности:
-В зависимости от навыков и желаний:
-Разработка алгоритмического и программного обеспечения (R&D).
-Курирование группы разработчиков алгоритмического и программного обеспечения.
-Выстраивание процессов разработки в команде.
-Наставничество.
-Обязательные навыки:
-Опыт проведения научных исследований и оформления их результатов.
-Опыт работы с математическими пакетами (Matlab и другие), знание экосистемы математических библиотек на базе Python.
-Опыт решения задач в области data science.
-Персональные качества:
-Ответственность.
-Позитив и желание развиваться.
-Из бонусов мы предлагаем:
-Обучение Python.
-Замечательный коллектив.
-Интересные задачи и возможность профессионального роста.
-Гибкая премиальная система.
-Комфортный офис в шаговой доступности от метро.
-Оплата питания.
-ДМС (через полгода работы).
-Насыщенная корпоративная жизнь.
-На время пандемии коронавируса возможна удаленная работа!","We are hiring an expert Machine Learning Engineer to work with AWS, Google, and Azure ML tools.
-You will work primarily with existing tools and techniques, not building new algorithms. You will work with large datasets comprised of bank account data, account history, loan records, end-user personal data, and mobile app interactions. You will need to transform this data into features / data inputs that will be fed into statistical models. You will need to conduct feature transformation, model selection, and model evaluation, and you will need to be able to analyze big volumes of raw data.
-The goals of this work include: developing product/loan recommendations, predicting loan risk, identifying good lending options, predicting fraudulent behavior within digital banking channels, etc.
-Responsibilities:
-Strong product-oriented person: you should be able to transform your idea from requirements into a MVP.
-Mine and analyze data from databases to drive optimization and improvement of product development.
-Create MVP of your product solutions.
-Assess the effectiveness and accuracy of data sources and data gathering techniques.
-Develop custom data models and algorithms to apply to data sets.
-Use predictive modeling to increase and optimize customer experience, revenue generation, fraud detection, churn prevention etc.
-Develop processes and tools to monitor and analyze model performance and data accuracy.
-Qualifications:
-Strong problem-solving skills with an emphasis on product development.
-Skilled at applying deep neural networks to real world problems.
-Experience using statistical computer languages (R, Python, c#) and working with MS SQL database (querying, prototyping data structures, etc.).
-Knowledge of a variety of machine learning techniques (clustering, decision tree learning, artificial neural networks, etc.) and their real-world advantages/drawbacks.
-Knowledge of advanced statistical techniques and concepts (regression, properties of distributions, statistical tests, and proper usage, etc.) and experience with applications.
-Good written and verbal English, for communication with US-based teams.
-Experience querying databases: MS SQL is preferable.
-Experience with collaboration processes for large teams, including Git flow, Jira, Confluence etc.
-Experience with AWS, Google and Azure machine learning solutions.
-Experience with Deep Neural Networks, such as PyTorch, Tensor Flow and others.
-A drive to learn and master new technologies and techniques.
-Our benefits:
-Work from anywhere in the world!
-Competitive salary.
-Compensation vacation (15 day off in a year).
-Global corporate events for all employees.
-Internet compensation (50$ per month)."
-8,"Python
-Big Data
-Tableau
-Базы данных","Python
-MATLAB
-Data Mining
-Data Analysis
-Математический анализ
-Linux","Английский — B2 — Средне-продвинутый
-Python
-Business Development
-MS SQL
+,0,0,0,0
+0,Специалист по углубленной аналитике данных (Data scientist),Data Scientist,Data Scientist,Data Scientist/Senior Data Scientist
+1,"А1. Информационные технологии, телеком",ООО Артистраж,Lamoda,СИТИЛИНК
+2,"Купаловская, Октябрьская, Минск, Интернациональная улица, 36",Москва,Москва,"Москва, Мякинино"
+3,1–3 года,1–3 года,3–6 лет,3–6 лет
+4,"Полная занятость, полный день","Полная занятость, полный день","Полная занятость, полный день","Полная занятость, полный день"
+5,з/п не указана,от 120 000 до 170 000 руб. до вычета налогов,з/п не указана,з/п не указана
+6,Вакансия опубликована 6 октября 2020 в Минске,Вакансия опубликована 9 октября 2020 в Москве,Вакансия опубликована 8 октября 2020 в Москве,Вакансия опубликована 7 октября 2020 в Москве
+7,"Основные задачи:
+Исследование данных из различных корпоративных источников для извлечения ценной для бизнеса информации;
+Формирование требований к источникам данных, необходимых для реализации аналитических продуктов и сервисов; тестирование данных на предмет корректности, полноты и консистентности;
+Разработка аналитических моделей на основе машинного обучения для прогнозирования склонности абонентов к использованию различных продуктов и сервисов;
+Расчет и прогнозирование различных показателей в динамике, подготовка аналитических отчетов и презентаций по запросам;
+Разработка интерактивных аналитических панелей (дэшбордов);
+Участие в процессах автоматизации аналитических решений; имплементации аналитических решений в бизнес-процессы и бизнес-системы предприятия;
+Формирование рекомендации по использованию аналитических моделей и решений на их основе для повышения эффективности маркетинговой деятельности, снижения рисков и предотвращения потерь.
+Требования к кандидатам:
+Высшее образование - прикладная математика\экономика \ статистика.
+Понимание методологии реализации аналитических проектов на основе машинного обучения.
+Владение методами машинного обучения и углубленной аналитики данных.
+Практический опыт работы с BI-инструментами (TABLEAU, MS Power BI, QlikView и т.п. ), статистическими пакетами (SPSS, STATISTICA и т.п.), библиотеками R и Python для углубленной аналитики и машинного обучения.
+Практический опыт извлечения и обработки данных из БД. Владение основами языка запросов (SQL).
+Английский язык - уровень не ниже Intermediate, свободное владение рассматривается как преимущество.
+Приветствуется:
+Знание рынка телекоммуникаций.
+Опыт работы с фреймворками экосистемы Hadoop, опыт программирования на R и Python.","Обязанности:
+Обработка и аналитика входных данных, их дальнейшая визуализация;
+Обработка разовых запросов;
+Разработка методик расчета для нестандартных показателей работы проектов;
+Построение и контроль работы обучаемой модели для обработки входящих данных;
+Построение системы для выявления аномалий в полученных данных;
+Задачи CV (Компьютерного зрения)
+Задачи кластеризации больших данных
+Построение моделей, находящих связи между объектами в больших данных
+Требования:
+Опыт работы от 1 года
+R или Python;
+Опыт работы по анализу данных;
+Знание и понимание алгоритмов машинного обучения;
+Знание и понимание математического моделирования и математического анализа;
+Опыт работы с различными базами данных;
+Технический английский
+Условия:
+График 5/2, 11:00-20:00
+Работа в офисе в Москва Сити","Being a part of the Lamoda research & development team, you will be responsible for bringing advanced data-driven and ML products to our website, apps and internal processes.
+We are working across various fields including Lamoda search, recommendation engine, catalogue ranking algorithms, personalisation framework, etc. along with an AB-testing platform and internal analytical tools like sales forecasting models and others.
+What you will work on:
+Run user experience research to drive product insights from data through clickstream and internal systems data analysis;
+Productize and test product hypotheses;
+Work in close cooperation with developers to bring the algorithms to production.
+We expect:
+Passion for data science and engineering around data;
+University degree in applied mathematics, IT, computer science or relevant. Strong knowledge of probability theory and mathematical statistics;
+Strong knowledge of machine learning, predictive modeling, and statistical analysis techniques;
+At least 2 years of experience in data analysis and ML;
+Proficiency in Python, Linux, Big Data techniques;
+Knowledge of algorithms and data structures, experience with SQL, Hadoop, Hive, Spark;
+Experience with at least 2 ML libraries: Scikit-learn, Vowpal Wabbit, XGBoost, CatBoost, TensorFlow, Spark ML;
+Deep learning skills for computer vision or NLP is a plus;
+Upper-Intermediate English (technical reading and professional communication);
+Kaggle competitions rewards, Yandex School of Data Analysis, relevant Coursera / Edx / other online / offline courses as a plus.
+We offer:
+Official employment, social package;
+Competitive salary;
+Flexible working hours, it is possible to plan working and personal time and work remotely;
+Challenging and engaging atmosphere in a team of professionals;
+Discounts on the entire range of products;
+Education of our employees: we share knowledge within the company, organizing internal meetings and taking part in external events;
+Attending at the conferences as listeners and speakers (for those who want to prepare professionally for presentations with reports or presentations we have Speakers Club);
+Relocation package for candidates living outside Moscow and Moscow region;
+A comfortable office in Moscow (MCC Khoroshevo / m. Polezhaevskaya) with activities like table tennis, kicker, gym and yoga.","Требуемые компетенции:
+Высшее образование либо живой интерес в data science и IT
+Аналитический склад ума
+Навыки общения и работы в команде
+Опыт программирования на Python/понимание принципов математического моделирования
+Желание развиваться в разработке алгоритмов, аналитике данных и машинном обучении
+Знание SQL и навыки работы с табличными данными (желательно)
+Опыт работы в ритейле, логистике, аналитике ценообразования, ассортимента или закупках (желательно)
+Функции:
+Разрабатывать и внедрять математические модели в бизнес процесс, повышать их точность прогнозирования
+Разрабатывать и модифицировать алгоритмы для цепей поставок, расчёта ассортимента товаров, закупок и других процессов компании
+Находить оптимальное архитектурное решение для удовлетворения потребностей бизнеса
+Поддерживать работоспособность решений, контролировать качество получаемых данных
+Работать с форматами исходных и конечных данных; улучшать UX для пользователей
+Активно обсуждать потребности, цели и методы решения с бизнесом, data аналитиками, planning аналитиками и менеджментом
+Условия работы:
+Работа лидере e-commerce интернет продажи электроники и БТ в России (по версии Forbes и не только)
+ТК РФ
+Комфортный офис 5/2, шаговая доступность от метро Мякинино.
+График на выбор: 9-18 или 10-19
+Корпоративные скидки/премии
+Особенности работы:
+МНОГО качественных данных разного характера (продажи, товары, магазины, поведение пользователей и т.д.) – а значит скучно не будет.
+Широкий класс задач (ассортимент товаров, гео-аналитика, логистика, маркетинг и т. д.) – а значит есть возможность разработать разные классы алгоритмов. В текущие бизнес потребности входит разработка моделей регрессии на временных рядах, моделей кластеризации и рекомендательных систем.
+Условия, чтобы оказать влияние на работу всей компании – применить любые идеи, если это полезно для бизнеса.
+Возможность для кооперации и совместных решений. ‘Отдел математического моделирования’ – это часть единого централизованного 'управления аналитики и планирования’ в компании, а значит работать в команде из ‘отдела архитектуры корпоративных данных’, 'отдела коммерческой аналитики (BI)’, ‘отдела веб-аналитики’ и ‘отдела планирования и контроллинга’.
+Управление временем в JIRA, работа по спринтам."
+8,"SPSS
+Статистический анализ
+Statistica
+Аналитические исследования
+Маркетинговый анализ
+Прогнозирование
+Математическая статистика
 SQL
+Анализ бизнес показателей
+CRISP-DM
+Методы машинного обучения
+Английский язык
+Machine Learning
+Data Science
+Data Analysis
+Data Mining
+Big Data
+R-language
+Iron Python
+дистанционная работа","Python
 R
-AWS"
+Machine Learning
+Computer Vision
+Big Data",,"Data Mining
+Python
+SQL
+VBA"
