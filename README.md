@@ -14,8 +14,8 @@ Getting started:
 - Activate venv for shell: `source bin/activate`
 - Install manual declared dependencies: `pip install -r dependencies.txt`
 - Download chrome driver: `https://sites.google.com/a/chromium.org/chromedriver/`
-- You may open chrome with remote address: `chromium --remote-debugging-port=9222 --user-data-dir=/tmp/chrometmp` and connect to it using `connect $PORT` command: `python src/headhunterScrapper.py /home/aleksey/PycharmProjects/Web_driver/chromedriver_linux64/chromedriver /home/aleksey/PycharmProjects/My_Web_Scrapper/dataset connect 9222`
-- Either use `open` command and just open new browser: `python src/headhunterScrapper.py /home/aleksey/PycharmProjects/Web_driver/chromedriver_linux64/chromedriver /home/aleksey/PycharmProjects/My_Web_Scrapper/dataset open`
+- You may open chrome with remote address: `chromium --remote-debugging-port=9222 --user-data-dir=/tmp/chrometmp` and connect to it using `connect $PORT` command: `python src/headhunterScrapper.py /home/aleksey/PycharmProjects/Web_driver/chromedriver_linux64/chromedriver /home/aleksey/PycharmProjects/My_Web_Scrapper/dataset 1 2 connect 9222` (example)
+- Either use `open` command and just open new browser: `python src/headhunterScrapper.py /home/aleksey/PycharmProjects/Web_driver/chromedriver_linux64/chromedriver /home/aleksey/PycharmProjects/My_Web_Scrapper/dataset all 1 open` (example)
 
 
 
