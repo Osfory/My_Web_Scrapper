@@ -27,8 +27,8 @@ def parseCliArguments():
     if (argv < 6 or 7 < argv):
         raise ValueError("Usage: path_to_driver path_to_output num_of_pages num_of_vacancies command (open|connect port)")
     args = sys.argv
-    num_of_pages = int(args[3])
-    num_of_vacancies = int(args[4])
+    num_of_pages = -1 if args[3] == "all" else int(args[3])
+    num_of_vacancies = -1 if args[4] == "all" else int(args[4])
     port = int(args[6]) if 7 == argv else -1
     command = "open" if "connect" != args[5] else "connect"
     return ScrapperConfig(args[1], args[2], num_of_pages, num_of_vacancies, command, port)
@@ -46,6 +46,8 @@ def page_scrapper(presence, page_catcher, required_elements, number_of_vacancies
         CSS element used to getting vacancy page.
     required_elements: list
         List of CSS elements used to collect the required elements of a web page.
+    number_of_vacancies: int
+        Number of vacancies to be collected.
     Returns
     -------
         Gives no return.
@@ -117,14 +119,14 @@ css_elements = ["h1.bloko-header-1", "a[data-qa=\"vacancy-company-name\"]", "p[d
                 "p.vacancy-creation-time", "div[data-qa=\"vacancy-description\"]", "div.bloko-tag-list"]
 # ----------------------------------
 # Iterating over pages with vacancies
-for i in range(scrapperConfig.num_of_pages-1):
+for i in range(0, range(0, num_pages+1)[scrapperConfig.num_of_pages]): # damn, that's horrible
     print("Performing scrapping on page {}.".format(str(i + 1)))
     page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements, scrapperConfig.num_of_vacancies)
     # Go to next page with vacancies
     main_wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, css_next_page_button))).click()
     print("Went on page {}.".format(str(i + 2)))
 
-print("Performing scrapping on page {}.".format(str(scrapperConfig.num_of_pages)))
+print("Performing scrapping on page {}.".format(str(scrapperConfig.num_of_pages + 1)))
 page_scrapper(css_list_of_vacancies, css_link_to_vacancy, css_elements, scrapperConfig.num_of_vacancies)
 print("Scrapping is over. Congratulations!")
 # ----------------------------------
