@@ -9,6 +9,8 @@ from selenium.common.exceptions import *
 from functional import seq
 from chromium import *
 import pandas as pd
+import csv
+import json
 
 
 @dataclass
