@@ -1,6 +1,6 @@
-###MAJOR UPDATE OF PROJECT. - 07.10.2020
+### MAJOR UPDATE OF PROJECT. - 07.10.2020
 
-###This is the first steps snake project.
+### This is the first steps snake project.
 
 Example shows how to build and develop artifact using standard python ecosystem:
 - `pip`: for dependencies management
