@@ -6,3 +6,5 @@ __pycache__
 /pyvenv.cfg
 /share/
 /etc/
+/.ipynb_checkpoints
+/.idea
